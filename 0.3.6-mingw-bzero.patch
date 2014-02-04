@@ -1,0 +1,11 @@
+--- origsrc/audiofile-0.3.6/libaudiofile/CAF.cpp	2013-03-05 23:30:03.000000000 -0600
++++ src/audiofile-0.3.6/libaudiofile/CAF.cpp	2014-02-03 21:34:25.216499900 -0600
+@@ -704,7 +704,7 @@ void CAFFile::initALACCompressionParams(
+ 	if (track->f.channelCount > 2)
+ 		codecDataSize += kChannelAtomSize + kALACAudioChannelLayoutSize;
+ 	m_codecData = new Buffer(codecDataSize);
+-	bzero(m_codecData->data(), m_codecData->size());
++	memset(m_codecData->data(), '\0', m_codecData->size());
+ 
+ 	AUpvlist pv = AUpvnew(2);
+ 

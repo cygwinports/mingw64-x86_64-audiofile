@@ -1,0 +1,32 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-audiofile"
+VERSION=0.3.6
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Digital audio file library for Win64 toolchain"
+DESCRIPTION="The Audio File Library provides a uniform programming interface to
+standard digital audio file formats. This library allows the processing of
+audio data to and from audio files of many common formats (currently AIFF,
+AIFF-C, WAVE, NeXT/Sun .snd/.au, IRCAM, AVR, Amiga IFF/8SVX, and NIST SPHERE).
+The library also supports compression (currently G.711 mu-law and A-law and IMA
+and MS ADPCM) as well as PCM formats of all flavors (signed and unsigned
+integer, single- and double-precision floating point)."
+HOMEPAGE="http://audiofile.68k.org/"
+SRC_URI="http://audiofile.68k.org/audiofile-${VERSION}.tar.gz"
+SRC_DIR="audiofile-${VERSION}"
+PATCH_URI="0.3.6-mingw-bzero.patch"
+
+CYGCONF_ARGS="--disable-docs"
+# POSIX printf modifiers
+CPPFLAGS+=" -posix"
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS=
+}
+
+DOCS="ACKNOWLEDGEMENTS COPYING.GPL"
+
+KEEP_LA_FILES="none"
