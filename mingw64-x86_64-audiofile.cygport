@@ -3,7 +3,7 @@ inherit cross
 
 NAME="mingw64-x86_64-audiofile"
 VERSION=0.3.6
-RELEASE=1
+RELEASE=2
 CATEGORY="Devel"
 SUMMARY="Digital audio file library for Win64 toolchain"
 DESCRIPTION="The Audio File Library provides a uniform programming interface to
